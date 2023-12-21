@@ -1,17 +1,17 @@
 ﻿4 Temel Katman vardır.
 
-- Entity Layer 
+1) Entity Layer 
 * Bizim varlıklarımızı tutar. Örn/ Skill (yetenekler), About - Education gibi şeyler varlıklarımızdır. Bu varlıkların kendi
 içerisinde proportie leri tanımlanacak. Örn/ Skill( yetenek) proporty dediğimiz alt başlıkları olur. Id, Başlığı, Oranı vs gibi
 
-- Data Access Layer
+2) Data Access Layer
 * Crud Operasyonlarına ait metotlar oluşur. Create, Read, Update, Delete
 Mimari olarak N Tier dediğimiz N katmanlı mimari yapısını kullanıyoruz. Geliştirme olarak Repository Design Pattern kullanıyoruz.
 
-- Business Layer
+3) Business Layer
 * Validasyonların yazıldığı katmandır. Validasyonlar: girmiş olduğumuz prop ların kısıtlamaları için kullanılır.
 
-- Presentation Layer
+4) Presentation Layer
 * Sunum katmanı olarak geçer. Controller ve Frontend tarafında ki kodlar yer alır.
 
 - İlk önce sırayla katmanları oluşturuyoruz.
@@ -27,4 +27,40 @@ başlıkları tek tek class olarak tanımlıyoruz.
 - Sonra Projenin içerisinde olması gereken EntityFrameworke ait olan paketleri yüklüyoruz.
 4 Temel paket bunlar;
 - EntityFramework Core, SQL, Tool, Desing paketlerini 4 katmana da yüklüyoruz.
+
+- 2. aşama olarak DataAccessLayer katmanına Concrete klasörü oluşturuyoruz.
+- içerisine Context classsı oluşturuyoruz.
+Context: Veri tabanı yapılandırması içerisindeki bağlantı stringini tutan ve veri tabanına yansıtılacak olan tabloları
+tutan clasımızdır.
+* Context sınıfında veri tabanına yansıtmak istediğimiz tabloları çağırıp onları da property olarak çağırıyoruz. Ama türleri
+DbSet olacaktır. DbSeti kullanmak içinde : koyup DbContext sınıfından miras aldırmamız gerekiyor.
+
+
+# BAĞLANTI YAPILANDIRMASI (Sql CodeFirst ile Db oluşturma) #
+
+*********************************************************************************************************************
+public class Context : DbContext
+   {
+     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+      {
+    optionsBuilder.UseSqlServer("server=DESKTOP-C1IT2N4\\MSSQLSERVER02;database=DbCorePortfolio;integrated security=true");
+      }
+   }
+  Context sınıfına bu şekilde yazıyoruz.
+
+*********************************************************************************************************************
+
+# KATMANLAR ARASI REFERANS İŞLEMİ #
+
+- Hiçbir katman EntityLayer katmanı içerisinde yer almayacak !
+- Entity Katmanı : DataAcces, BusinessLayer,Presentation(UI) katmanlarının içerisinde yer alacak. Yani bütün katmanlarda.
+- Data Access Katmanı: BusinessLayer, Presentation(UI) katmanı içerisinde yer alacak.
+- Business Layer Katmanı: Sadece Presentation(UI) katmanı içerisinde yer alır.
+
+* Sonra sırayla Entity katmanında oluşturduğumuz sınıfları DataAccess de Context sınıfına tek tek DbSet olarak ekliyoruz.
+
+# MİGRATİON İŞLEMİ #
+
+- SQL e yansıtma işlemlerinde kullanılır. Package Manager Console da mutlaka DataAccessLayer seçilecek.Çünkü Context
+sınıfı DataAccessLayer katmanı içerisinde olduğu için.
 
