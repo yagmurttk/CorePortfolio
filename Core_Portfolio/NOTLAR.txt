@@ -1,0 +1,30 @@
+﻿4 Temel Katman vardır.
+
+- Entity Layer 
+* Bizim varlıklarımızı tutar. Örn/ Skill (yetenekler), About - Education gibi şeyler varlıklarımızdır. Bu varlıkların kendi
+içerisinde proportie leri tanımlanacak. Örn/ Skill( yetenek) proporty dediğimiz alt başlıkları olur. Id, Başlığı, Oranı vs gibi
+
+- Data Access Layer
+* Crud Operasyonlarına ait metotlar oluşur. Create, Read, Update, Delete
+Mimari olarak N Tier dediğimiz N katmanlı mimari yapısını kullanıyoruz. Geliştirme olarak Repository Design Pattern kullanıyoruz.
+
+- Business Layer
+* Validasyonların yazıldığı katmandır. Validasyonlar: girmiş olduğumuz prop ların kısıtlamaları için kullanılır.
+
+- Presentation Layer
+* Sunum katmanı olarak geçer. Controller ve Frontend tarafında ki kodlar yer alır.
+
+- İlk önce sırayla katmanları oluşturuyoruz.
+2 temel klasörle çalışıyoruz genelde. Bu klasörlerin ismi Concrete ve Abstract'tır.
+
+* Concrete klasöründe: Genellikle Class'lar ile çalışıyoruz.
+* Abstract klasöründe: Genellikle Interface ile çalışıyoruz.
+
+Not: Entity'lerimiz somut değerler, Interface ler ise soyut ifadeler olarak karşılıyor bizi.
+
+- ilk önce sırayla projemizde oluşturacağımız tabloları yani somut değerleri entity katmanında concrete isminde klasör oluşturup
+başlıkları tek tek class olarak tanımlıyoruz.
+- Sonra Projenin içerisinde olması gereken EntityFrameworke ait olan paketleri yüklüyoruz.
+4 Temel paket bunlar;
+- EntityFramework Core, SQL, Tool, Desing paketlerini 4 katmana da yüklüyoruz.
+
