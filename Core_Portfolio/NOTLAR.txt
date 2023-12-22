@@ -64,3 +64,50 @@ public class Context : DbContext
 - SQL e yansıtma işlemlerinde kullanılır. Package Manager Console da mutlaka DataAccessLayer seçilecek.Çünkü Context
 sınıfı DataAccessLayer katmanı içerisinde olduğu için.
 
+# INTERFACELER #
+
+- Data Access katmanı içerisinde Abstract klasörü oluşturarak Interfaceler buraya tanımlanır.
+- Entitylerin her biri için temel CRUD operasyonları olacaktır.
+- interface de oluşturulan CRUD işlemlerini imza olarak düşünüp , Sonra classlarda içerisini dolduracağız.
+- Bu yüzden Generic Interface oluşturacağız. Her bir entitylere tek tek CRUD operasyonu 
+oluşturmaktansa generic yapıyla heryerden
+erişilebilir hale getireceğiz.
+
+- Abstract klasörünün içerisine IGenericDal diye interface oluşturup CRUD işlemlerini tanımlıyoruz. Daha sonra oluşturulan
+Interfacelerin içerisine IGenericDal dan miraas alıyoruz bütün entityleri.
+
+# GENERİC REPOSİTORY #
+
+ - DataAccess katmanı üzerinde Repository adında klasör oluşturuyoruz. ve içerisine Class ekliyoruz GenericRepository adında.
+ ve yapıyı Generic hale getiriyoruz.
+ GenericRepository<T> : IGenericDal<T> where T : class yazarak.
+
+ # ENTİTYFRAMEWORK DAL #
+
+ - DataAccess katmanı üzerindeki son klasör. Bu klasörde CRUD operasyonlarından önce ki son adım EntityFramework üzerinden
+ gelen değerlerdir.
+ - Bütün Entityler için birer Class tanımlıyoruz EntityFramework klasörünün içerisine.
+ tanımladığımız classları public hale getirip 
+
+ - GenericRepository<About>, IAboutDal (GenericRepositoryden miras al, GenericRepository içerisine değer olarak
+ açtığımız classdan veriyi alacaksın , Ayrıca açılan classDal dan değerleri de alacaksın diyoruz.)
+
+ # GENERİC SERVİCE #
+
+ - BusinessLayer katmanına ilk önce 3 klasör oluşturuyoruz. Bunlar Abstract , Concrete ve ValidationRules klasörleri
+ - Abstract klasörüne tanımladığımız bileşenler birer service olacak. Bu servisler business tarafında CRUD operasyonları
+ için gerekli olan metotların çağrılmadan önce imzasını taşıyacaktır.
+ - ilk önce IGenericService adında interface oluşturuyoruz ve içerisine CRUD işlemlerini tanımlıyoruz.
+ - Sonra bütün entitylere tek tek interface oluşturuyoruz ve tek tek IGenericService den miras alıyoruz.
+
+ - Concrete klasörüne: Bütün entityleri class olarak ekleyip bunları Manager olarak adlandırıyoruz.
+ - oluşturduğumuz Manager Classlarına ilgili classın Servicesini miras alıyor ve implement interface diyoruz.
+ Örn:/  public class AboutManager : IAboutService diyerek miras alıyoruz.
+
+ NOT: // UI katmanında wwwroot  isminde ki klasöre ımage dosyaları tema dosyaları vb dosyaları bunun içine atıyoruz CORE ile
+ birlikte.
+
+
+
+
+
