@@ -107,6 +107,14 @@ Interfacelerin içerisine IGenericDal dan miraas alıyoruz bütün entityleri.
  NOT: // UI katmanında wwwroot  isminde ki klasöre ımage dosyaları tema dosyaları vb dosyaları bunun içine atıyoruz CORE ile
  birlikte.
 
+ # Partial View Kullanımı # 
+
+ - Indexte partialı çağırabilmek için @ await ile çağırıyoruz.
+ Örn/ @await Html.PartialAsync("HeaderPartial") // Eğer partialımız ındexin bulunduğu control içinde değilde başka
+ bir control içinde olsaydı onun view tarafındaki yolu yazılırdı HeaderPartial yerine //
+
+ - View Components : 
+
 
 
 
