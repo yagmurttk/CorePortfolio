@@ -1,4 +1,22 @@
-﻿4 Temel Katman vardır.
+﻿C# (C Sharp): MVC projesi geliştirirken temel olarak kullandığımız programlama dili.
+Veri işleme, iş mantığı ve diğer uygulama katmanlarının geliştirilmesinde kullanılır.
+
+MVC (Model-View-Controller) Mimarisi: Projeyi organize etmek ve kodu modüler hale getirmek için kullandığımız yapı.
+
+Bootstrap: Kullanıcı arayüzü tasarımında kullandığımız popüler bir CSS framework'ü. 
+Responsive(duyarlı) ve modern web sayfaları oluşturmak için tercih edilir.
+
+Fluent Validation: Veri doğrulamasını gerçekleştirmek için kullandığımız bir kütüphane.
+Gelen verilerin doğruluğunu sağlamak için kullanılır.
+
+Entity Framework (CodeFirst): Veritabanı entegrasyonunu kolaylaştırmak için kullandığımız bir ORM (Object-Relational Mapping) aracı. 
+CodeFirst yaklaşımıyla C# sınıflarından veritabanı tablolarını otomatik olarak oluşturmayı sağlar.
+
+N-Tier Architecture: Projeyi katmanlara ayırarak daha modüler, bakımı kolay ve genişletilebilir hale getiren bir mimari yaklaşım.
+
+
+
+4 Temel Katman vardır.
 
 1) Entity Layer 
 * Bizim varlıklarımızı tutar. Örn/ Skill (yetenekler), About - Education gibi şeyler varlıklarımızdır. Bu varlıkların kendi
