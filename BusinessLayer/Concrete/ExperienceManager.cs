@@ -9,36 +9,36 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class ContactManager : IContactService
+    public class ExperienceManager: IExperienceService
     {
-        IContactDal _contactDal;
+        IExperienceDal _experienceDal;
 
-        public ContactManager(IContactDal contactDal)
+        public ExperienceManager(IExperienceDal experienceDal)
         {
-            _contactDal = contactDal;
+            _experienceDal = experienceDal;
         }
 
-        public void TAdd(Contact t)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void TDelete(Contact t)
+        public void TAdd(Experience t)
         {
             throw new NotImplementedException();
         }
 
-        public Contact TGetByID(int id)
+        public void TDelete(Experience t)
         {
             throw new NotImplementedException();
         }
 
-        public List<Contact> TGetList()
+        public Experience TGetByID(int id)
         {
-            return _contactDal.GetList();
+            throw new NotImplementedException();
         }
 
-        public void TUpdate(Contact t)
+        public List<Experience> TGetList()
+        {
+            return _experienceDal.GetList();
+        }
+
+        public void TUpdate(Experience t)
         {
             throw new NotImplementedException();
         }
