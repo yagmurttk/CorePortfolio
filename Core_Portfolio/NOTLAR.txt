@@ -131,7 +131,7 @@ Interfacelerin içerisine IGenericDal dan miraas alıyoruz bütün entityleri.
  Örn/ @await Html.PartialAsync("HeaderPartial") // Eğer partialımız ındexin bulunduğu control içinde değilde başka
  bir control içinde olsaydı onun view tarafındaki yolu yazılırdı HeaderPartial yerine //
 
- - View Components : 
+# AJAX #
 
 
 
