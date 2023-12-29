@@ -16,7 +16,7 @@ namespace Core_Portfolio.Controllers
         {
             return PartialView();
         }
-        public PartialViewResult PartialNavbar()
+        public PartialViewResult PartialTopbar()
         {
             return PartialView();
         }
@@ -25,6 +25,10 @@ namespace Core_Portfolio.Controllers
             return PartialView();
         }
         public PartialViewResult PartialScript()
+        {
+            return PartialView();
+        }
+        public PartialViewResult PartialNavigation()
         {
             return PartialView();
         }
