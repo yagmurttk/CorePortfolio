@@ -38,6 +38,30 @@ namespace Core_Portfolio.Controllers
             skillManager.TAdd(skill);
             return RedirectToAction("Index");
         }
+        public IActionResult DeleteSkill(int id)
+        {
+            var values = skillManager.TGetByID(id);
+            skillManager.TDelete(values);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult EditSkill(int id)
+        {
+            ViewBag.V1 = "Yetenek Güncelleme";
+            ViewBag.V2 = "Yetenek Listesi";
+            ViewBag.V3 = "Yetenek Güncelleme";
+            ViewBag.V2URL = "/Skill/Index/";
+
+            var values = skillManager.TGetByID(id);
+            return View(values);
+        }
+
+        [HttpPost]
+        public IActionResult EditSkill(Skill skill)
+        {
+            skillManager.TUpdate(skill);
+            return RedirectToAction("Index");
+        }
 
     }
 }
