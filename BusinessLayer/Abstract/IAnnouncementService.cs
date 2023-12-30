@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace DataAccessLayer.Abstract
+
+namespace BusinessLayer.Abstract
 {
-    public interface ISocialMedyaDal : IGenericDal<SocialMedia>
+   public interface IAnnouncementService:IGenericService<Announcement>
     {
     }
 }
