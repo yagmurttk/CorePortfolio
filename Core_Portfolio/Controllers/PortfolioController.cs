@@ -22,5 +22,20 @@ namespace Core_Portfolio.Controllers
             var values = portfolioManager.TGetList();
             return View(values);
         }
+        [HttpGet]
+        public IActionResult AddPortfolio()
+        {
+            ViewBag.V1 = "Yeni Proje Ekleme";
+            ViewBag.V2 = "Proje Listesi";
+            ViewBag.V3 = "Yeni Proje Ekleme";
+            ViewBag.V2URL = "/Portfolio/Index/";
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddPortfolio(Portfolio portfolio)
+        {
+            portfolioManager.TAdd(portfolio);
+            return RedirectToAction("Index");
+        }
     }
 }
